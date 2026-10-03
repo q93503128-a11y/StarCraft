@@ -17,6 +17,7 @@
 - [콘텐츠 다양성과 성장 체감](design/content-and-power.md): 사냥터 방식 선택, 보스/이벤트/도전 보상 역할, 강해지는 의미
 - [첫 지역 플레이 묶음](design/first-region-slice.md): 첫 방문 5개 작전, 반복 계약, 지역 동선과 성장 체감 초안
 - [5개 성장대 지역·캠페인 구성](design/region-campaign-outline.md): 성장대별 지역 테마, 25개 핵심 작전, 보스/이벤트 및 반복 조합
+- [전투 조우·협동 난도·역할 기여](design/combat-coop-balance.md): 적 전술 역할, 1~4인 편성, 다운/구조, 일반/위험 난도와 테스트 기준
 - [결정 기록](decisions/README.md): 합의된 사항과 미결정 사항
 - [회의 메모](meetings/README.md): 대화별 방향 변화
 
