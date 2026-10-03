@@ -9,6 +9,7 @@
 - [성장·진행 후보](design/progression-options.md): 웨이브 외 진행 루프 비교
 - [레벨·갈래·스킬 설계안](design/growth-and-skills.md): 전투 레벨 상한 제안과 세 역할 갈래, 스킬·패시브 조합
 - [핵심 게임 설계안](design/core-game-plan.md): 한 판 흐름, 협동/난도, 보상 경제, 콘텐츠 확장 순서
+- [전초기지 메인 허브](design/main-hub.md): 안전한 시작, 정비, 활동 선택과 출격·복귀 흐름
 - [성장·보상 밸런스 초안](design/growth-economy-balance.md): 250레벨 XP 곡선, 계급 진급 비용, 지역별 작전 보상, 공격·체력 강화 가격
 - [성장 시스템 통합표](design/growth-system-matrix.md): 레벨·계급·훈련·재화·강화·스킬 해금, 전투 수치 공식과 세션 간 저장 연결
 - [스킬·패시브 트리와 진화](design/skill-tree-and-evolutions.md): 세 성장 갈래의 액티브/패시브 효과, 해금 순서와 포인트별 빌드 예시
