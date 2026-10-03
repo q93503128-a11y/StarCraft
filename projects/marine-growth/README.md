@@ -11,6 +11,7 @@
 - [핵심 게임 설계안](design/core-game-plan.md): 한 판 흐름, 협동/난도, 보상 경제, 콘텐츠 확장 순서
 - [성장·보상 밸런스 초안](design/growth-economy-balance.md): 250레벨 XP 곡선, 계급 진급 비용, 지역별 작전 보상, 공격·체력 강화 가격
 - [성장 시스템 통합표](design/growth-system-matrix.md): 레벨·계급·훈련·재화·강화·스킬 해금, 전투 수치 공식과 세션 간 저장 연결
+- [스킬·패시브 트리와 진화](design/skill-tree-and-evolutions.md): 세 성장 갈래의 액티브/패시브 효과, 해금 순서와 포인트별 빌드 예시
 - [성장 단계별 체감·사냥터 효율](design/progression-feel.md): 레벨별 전투력 목표, 사냥터 성장대 배치, XP/분 및 만렙 소요시간 검증 기준
 - [첫 완수부터 만렙까지의 성장 시간 계산](design/pacing-simulation.md): 티어별 첫 완수 누적 레벨과 반복 횟수/시간 시뮬레이션
 - [스테이지·캠페인 구조](design/stage-structure.md): 지역, 스테이지 유형, 해금과 반복 보상 제안
