@@ -13,6 +13,7 @@
 - [스테이지·캠페인 구조](design/stage-structure.md): 지역, 스테이지 유형, 해금과 반복 보상 제안
 - [스테이지와 사냥터 방향 비교](design/stage-vs-hunting-field.md): 고정 작전, 완전 오픈월드, 반개방 사냥터의 장단점
 - [콘텐츠 다양성과 성장 체감](design/content-and-power.md): 사냥터 방식 선택, 보스/이벤트/도전 보상 역할, 강해지는 의미
+- [첫 지역 플레이 묶음](design/first-region-slice.md): 첫 방문 5개 작전, 반복 계약, 지역 동선과 성장 체감 초안
 - [결정 기록](decisions/README.md): 합의된 사항과 미결정 사항
 - [회의 메모](meetings/README.md): 대화별 방향 변화
 
