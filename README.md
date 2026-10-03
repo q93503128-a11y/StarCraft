@@ -21,6 +21,7 @@
 
 - [스타크래프트 II 모드 사례집](research/sc2/mode-casebook.md): 성장, 협동, 대전, 목표 구성 사례
 - [공개 코드·제작 방식](research/sc2/implementation-patterns.md): 공개 맵 코드, 데이터, 액터, Galaxy 패턴
+- [성장 구조 비교](research/comparative/growth-progression.md): 타 게임과 스타2 모드의 영구 성장, 스킬·패시브, 계급 참고
 - [외부 시각 자료 원칙](references/README.md): UI·모델·기타 에셋의 출처와 이용 조건
 - [기여 및 기획 원칙](CONTRIBUTING.md)
 
@@ -42,6 +43,7 @@
 ├── ideas/                 # 아직 프로젝트로 고르지 않은 모드 후보
 ├── projects/              # 모드별 독립 기획·결정·회의 기록
 ├── research/sc2/          # 여러 기획에 공통으로 쓰는 스타2 조사
+├── research/comparative/  # 타 게임에서 참고할 만한 시스템 조사
 ├── references/            # 외부 UI·모델·에셋 출처와 권리 기록
 └── templates/             # 새 모드 기획 시작용 문서 구조
 ```
