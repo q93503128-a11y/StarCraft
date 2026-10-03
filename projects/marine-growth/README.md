@@ -11,6 +11,7 @@
 - [핵심 게임 설계안](design/core-game-plan.md): 한 판 흐름, 협동/난도, 보상 경제, 콘텐츠 확장 순서
 - [성장·보상 밸런스 초안](design/growth-economy-balance.md): 250레벨 XP 곡선, 계급 진급 비용, 지역별 작전 보상, 공격·체력 강화 가격
 - [스테이지·캠페인 구조](design/stage-structure.md): 지역, 스테이지 유형, 해금과 반복 보상 제안
+- [스테이지와 사냥터 방향 비교](design/stage-vs-hunting-field.md): 고정 작전, 완전 오픈월드, 반개방 사냥터의 장단점
 - [결정 기록](decisions/README.md): 합의된 사항과 미결정 사항
 - [회의 메모](meetings/README.md): 대화별 방향 변화
 
