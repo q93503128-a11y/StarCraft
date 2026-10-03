@@ -9,6 +9,7 @@
 - [성장·진행 후보](design/progression-options.md): 웨이브 외 진행 루프 비교
 - [레벨·갈래·스킬 설계안](design/growth-and-skills.md): 전투 레벨 상한 제안과 세 역할 갈래, 스킬·패시브 조합
 - [핵심 게임 설계안](design/core-game-plan.md): 한 판 흐름, 협동/난도, 보상 경제, 콘텐츠 확장 순서
+- [성장·보상 밸런스 초안](design/growth-economy-balance.md): 250레벨 XP 곡선, 계급 진급 비용, 지역별 작전 보상, 공격·체력 강화 가격
 - [스테이지·캠페인 구조](design/stage-structure.md): 지역, 스테이지 유형, 해금과 반복 보상 제안
 - [결정 기록](decisions/README.md): 합의된 사항과 미결정 사항
 - [회의 메모](meetings/README.md): 대화별 방향 변화

@@ -142,3 +142,4 @@ SC2 Galaxy Bank로 해병 진행을 저장할 수 있으므로, 레벨·계급·
 5. 첫 협동 빌드에서 사용할 액티브/패시브 수와 훈련 포인트 비용.
 
 현재의 상세 성장 갈래·스킬 예시는 [레벨·갈래·스킬 설계안](growth-and-skills.md), 재화/성장 사례는 [성장 구조 비교 조사](../../../research/comparative/growth-progression.md)를 참고합니다.
+첫 수치 모델은 [성장·보상 밸런스 초안](growth-economy-balance.md)에 정리합니다.
