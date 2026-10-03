@@ -38,6 +38,24 @@ Blizzard의 소개에서 사령관은 임무를 플레이해 경험치를 얻고
 
 **가져올 아이디어:** 계급과 커리어 레벨은 스테이지 보급 상점과 다른 영구 보상으로 둡니다. 협동 보상은 막타 경쟁보다 임무 기여를 기준으로 나누는 편이 역할 갈래와도 맞습니다.
 
+### StarCraft II Co-op: 15레벨 본 성장과 1,000레벨 명예 성장 분리
+
+Blizzard는 협동 사령관 기본 레벨 15 뒤에 Mastery 90레벨을 둬 추가 능력 포인트를 제공했습니다. 별도로 Ascension 1,000레벨은 고급 플레이어의 경험치 목표로 추가하면서 전투 능력은 올리지 않는 명예/commendation 진행으로 설명했습니다.
+
+- [Blizzard: Co-op Mastery 최대 레벨 90](https://news.blizzard.com/en-us/article/20112699/patch-3-3-new-co-op-content-and-features)
+- [Blizzard: Ascension 1,000레벨과 전투 능력 분리](https://news.blizzard.com/en-us/article/21012486/patch-3-17-preview-ascension)
+
+**가져올 아이디어:** 높은 숫자가 주는 장기 목표와 캐릭터 전투력 레벨은 분리할 수 있습니다. 이병부터 장군까지 별도 계급도 있으므로, 전투 성장 레벨을 수백까지 두고 원한다면 나중에 비전투 숙련/공훈 표시를 별도로 더할 수 있습니다.
+
+### Diablo III: 수백 레벨 장기 성장의 상한 관리
+
+Diablo III의 초기 Paragon은 최고 레벨 달성 뒤 100단계의 영구 능력치/보너스 성장을 제공했습니다. 시즌 29에는 Paragon 포인트 상한을 800으로 두며 Blizzard는 Paragon이 전투력에서 지나치게 큰 비중을 가졌다고 설명했습니다.
+
+- [Blizzard: 초기 Paragon 100레벨](https://news.blizzard.com/en-us/article/7029347/patch-1-0-4-now-live)
+- [Blizzard: 시즌 29 Paragon 상한 800과 전투력 영향](https://news.blizzard.com/en-us/article/23999068/season-29-visions-of-enmity-has-concluded)
+
+**가져올 아이디어:** 전투력에 영향을 주는 레벨은 상한을 둬야 파티 격차와 수치 밸런스를 통제하기 쉽습니다. 수천 레벨마다 계속 스탯을 더하기보다, 새 기술 조합·맵·난도 선택을 추가하는 편이 콘텐츠 다양성에 기여합니다.
+
 ### Deep Rock Galactic: 연속 스테이지와 고유 보상
 
 개발팀의 2019년 발표는 Deep Dive를 연속된 세 스테이지로 구성하고, 단계마다 광물·무기 Overclock 설계도 같은 고유 보상을 제공한다고 설명합니다. Overclock은 무기 성능을 바꾸며 강점과 대가를 함께 둘 수 있습니다.
