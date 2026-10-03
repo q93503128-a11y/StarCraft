@@ -4,7 +4,7 @@
 
 ## 문서
 
-- [기획안 0.1](design/pitch-v0.1.md): 협동 임무형·계급 중심 성장에 대한 토론용 제안
+- [기획 초안](design/pitch.md): 스테이지 선택, 솔로/협동, 역할별 성장과 재화 제안
 - [기획 브리프](design/brief.md): 사용자 방향, 열린 질문, 난도 원칙
 - [성장·진행 후보](design/progression-options.md): 웨이브 외 진행 루프 비교
 - [결정 기록](decisions/README.md): 합의된 사항과 미결정 사항
