@@ -27,6 +27,7 @@
 - [결정 기록](decisions/README.md): 합의된 사항과 미결정 사항
 - [회의 메모](meetings/README.md): 대화별 방향 변화
 - [구현·콘텐츠 전수 대조](implementation-audit-2026-10-04.md): 현재 코드/콘텐츠 범위, 저장·협동 위험, 외부 모드와 공개 코드 비교
+- [외부 시스템 대조와 성장·콘텐츠 설계](design/external-systems-review-and-content-plan.md): Guild Wars 2, Destiny 2, Deep Rock Galactic, SC2 협동전의 시스템 비교와 적용안
 
 스타크래프트 II 모드와 제작 방식의 공통 조사 자료는 저장소의 [사례집](../../research/sc2/mode-casebook.md)과 [구현 조사](../../research/sc2/implementation-patterns.md)를 참고합니다.
 이번 시설·강화 작업에서 실제로 읽은 코드와 적용 범위는 [공개 코드 조사](../../research/sc2/spatial-services-and-upgrade-code.md)에 기록합니다.
