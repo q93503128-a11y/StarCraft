@@ -26,6 +26,7 @@
 - [전투 조우·협동 난도·역할 기여](design/combat-coop-balance.md): 적 전술 역할, 1~4인 편성, 다운/구조, 일반/위험 난도와 테스트 기준
 - [결정 기록](decisions/README.md): 합의된 사항과 미결정 사항
 - [회의 메모](meetings/README.md): 대화별 방향 변화
+- [구현·콘텐츠 전수 대조](implementation-audit-2026-10-04.md): 현재 코드/콘텐츠 범위, 저장·협동 위험, 외부 모드와 공개 코드 비교
 
 스타크래프트 II 모드와 제작 방식의 공통 조사 자료는 저장소의 [사례집](../../research/sc2/mode-casebook.md)과 [구현 조사](../../research/sc2/implementation-patterns.md)를 참고합니다.
 이번 시설·강화 작업에서 실제로 읽은 코드와 적용 범위는 [공개 코드 조사](../../research/sc2/spatial-services-and-upgrade-code.md)에 기록합니다.
