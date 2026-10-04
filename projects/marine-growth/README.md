@@ -1,15 +1,16 @@
 # 해병 성장 RPG
 
-상태: 초기 기획 중. 여러 스타크래프트 II 모드 중 하나입니다. 해병 성장과 협동, 지역별 반개방 사냥터를 현재 작업 방향으로 삼고 세부 규칙·수치는 조정 중입니다.
+상태: 플레이 가능한 기본 사냥·시설 프로토타입 제작 중. 여러 스타크래프트 II 모드 중 하나입니다. 해병 성장과 협동, 지역별 반개방 사냥터를 현재 작업 방향으로 삼고 세부 규칙·수치는 조정 중입니다.
 
 ## 문서
 
-- [기획 초안](design/pitch.md): 스테이지 선택, 솔로/협동, 역할별 성장과 재화 제안
+- [기획 초안](design/pitch.md): 초기 스테이지 제안 기록; 현재 진행은 공유 사냥터 기준 우선
 - [기획 브리프](design/brief.md): 사용자 방향, 열린 질문, 난도 원칙
 - [성장·진행 후보](design/progression-options.md): 웨이브 외 진행 루프 비교
 - [레벨·갈래·스킬 설계안](design/growth-and-skills.md): 전투 레벨 상한 제안과 세 역할 갈래, 스킬·패시브 조합
 - [핵심 게임 설계안](design/core-game-plan.md): 한 판 흐름, 협동/난도, 보상 경제, 콘텐츠 확장 순서
 - [전초기지 메인 허브](design/main-hub.md): 안전한 시작, 정비, 활동 선택과 출격·복귀 흐름
+- [마을 시설과 공유 사냥터 제작 기준](design/spatial-hub-and-hunting-prototype.md): 현재 구현, 네 강화, 멀티·저장 검증 경계와 후속 작업
 - [성장·보상 밸런스 초안](design/growth-economy-balance.md): 250레벨 XP 곡선, 계급 진급 비용, 지역별 작전 보상, 공격·체력 강화 가격
 - [성장 시스템 통합표](design/growth-system-matrix.md): 레벨·계급·훈련·재화·강화·스킬 해금, 전투 수치 공식과 세션 간 저장 연결
 - [스킬·패시브 트리와 진화](design/skill-tree-and-evolutions.md): 세 성장 갈래의 액티브/패시브 효과, 해금 순서와 포인트별 빌드 예시
@@ -27,5 +28,6 @@
 - [회의 메모](meetings/README.md): 대화별 방향 변화
 
 스타크래프트 II 모드와 제작 방식의 공통 조사 자료는 저장소의 [사례집](../../research/sc2/mode-casebook.md)과 [구현 조사](../../research/sc2/implementation-patterns.md)를 참고합니다.
+이번 시설·강화 작업에서 실제로 읽은 코드와 적용 범위는 [공개 코드 조사](../../research/sc2/spatial-services-and-upgrade-code.md)에 기록합니다.
 다른 게임의 성장 시스템 비교는 [성장 구조 조사](../../research/comparative/growth-progression.md)에 기록합니다.
 Arcade 진행 저장의 가능 범위와 한계는 [SC2 Banks 조사](../../research/sc2/persistent-data.md)를 참고합니다.
