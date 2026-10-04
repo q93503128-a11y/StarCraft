@@ -36,3 +36,9 @@ SC2 기본 나무33개·덤불26개를 배치했다. 허브와 사냥터 경계�
 이번 작업에서도 Tristram필드와[마을 장면](https://media.forgecdn.net/attachments/160/321/tristram_1.JPG)을 다시 보고 자연/건축 표식과 길 구성을 참고했다. Blizzard UnitData/AbilData의기본 비콘·내려간 보급고·젤나가 감시탑/TowerCapture를 읽고 실제 유닛/능력을 재사용했다. UA3고정코드26902~26927아이템 이벤트,30881의기존프로필 형태/타입/서명 검사도 읽었다. 인벤토리/사운드 코드는 조사만 했으며,기존 자체 주문·도착 처리와Bank검증을 확장했다. 그림/모델/창 레이아웃/외국 제작자 Galaxy 파일을 가져오지 않았다.
 
 포탈 시작 가시성,보급품6곳개인영구회수,감시탑3곳정찰을 구현했다. 북부 첫 회수·중복 차단·탑 시야·기존Schema1저장 보존한Schema2이전·재접속 개인 상태를 실제 확인했다. 기존 지형 바이너리와전투 수치는 유지했다. 나머지 지점/협동/사람의 재미는 남았다. [상세 출처·적용·검증](../../projects/marine-growth/design/exploration-and-world-ux.md)을 참고한다. 최신 사용자 요청은 콘텐츠·디자인·UX우선이며 실제 밸런스는 사용자가 나중에 조정한다.
+
+## 탐험 갈래·지역 바닥 후속 배치
+
+[Tristram_2 실제 장면](https://media.forgecdn.net/attachments/160/323/Tristram_2.JPG)을 작업 전에 다시 보았다. 이동 공간을 비우고 건축물·수목을 가장자리에 배치하는 구성을 참고했다. Blizzard-TerrainTexData원문 스냅샷의기본 흙/SmallTiles/BricksSmall정의를 다시 읽고 기존 팔레트를 재사용했다. 제작자 이미지·모델·Galaxy·레이아웃을 가져오지 않았다.
+
+탐험 갈래6개,목적지/입구 바닥10곳과수목4그루 이동을 새MCPstaging에 적용했다. 실제에디터 미니맵 재생성 뒤 기존스크립트/지형/Objects바이트 보존을 비교했다. 전투/저장/보행/높이는 그대로다. 정상 북부 첫탑 시야/실루엣·B귀환·외곽 첫보급품 접촉 미회수/직접회수50을 실제PrintScreen에서 확인했다. 나머지4보급품/2탑/사람의 재미/협동은 미검증. [배치·적용·검증 경계](../../projects/marine-growth/design/landmark-routes-and-region-surfaces.md).
