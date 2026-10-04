@@ -31,3 +31,7 @@
 이번 시설·강화 작업에서 실제로 읽은 코드와 적용 범위는 [공개 코드 조사](../../research/sc2/spatial-services-and-upgrade-code.md)에 기록합니다.
 다른 게임의 성장 시스템 비교는 [성장 구조 조사](../../research/comparative/growth-progression.md)에 기록합니다.
 Arcade 진행 저장의 가능 범위와 한계는 [SC2 Banks 조사](../../research/sc2/persistent-data.md)를 참고합니다.
+
+이번 지형·무리·순찰 작업의 실제 출처와 검증 범위는 [사냥터 지형·무리 조사](../../research/sc2/field-terrain-and-camp-patterns.md)에 기록합니다.
+
+- [사냥터 확장과 비전투 귀환](design/field-expansion-and-recall.md): 기본 명령창 귀환(B),8초 전투 제한, 다음 지역192×192확장 계획과 실제 참고 출처
