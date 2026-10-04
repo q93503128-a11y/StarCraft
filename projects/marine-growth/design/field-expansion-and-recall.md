@@ -1,27 +1,44 @@
 # 사냥터 확장과 비전투 귀환
 
-2026-10-04 사용자 테스트: 현재 밸런스는 괜찮다는 평가. 기존 적 수치·보상·강화 비용을 유지한다. 사용자가 멀리서도 비전투 귀환을 요청했다.
+2026-10-04 갱신. 기존 밸런스를 유지하면서 정본에 맵 확장과 북부 사냥터를 적용했다. 정본은 RPG_Test.SC2Map 하나이며 이전 맵·후보·백업을 보존한다.
 
-## 현재 구현
+## 구현한 공간
 
-해병 기본 명령창의 귀환(B)을 누르면 자기 해병만 전초기지로 돌아간다. 클릭도 같은 능력을 사용한다. 공격하거나 피해를 받은 뒤 8초 동안은 귀환을 거부하고 남은 초를 표시한다. 무료이며 별도 메뉴를 열지 않는다. 기존 현장 귀환 포탈은 유지한다. 귀환은 공유 적을 제거하거나 다른 플레이어를 이동시키지 않는다. 정상 귀환과 구조 모두 기존 개인 저장·회복 처리를 사용한다. 전투 타이머는 세션 상태이며 영구 성장 저장에 넣지 않는다.
+지형을128×128에서192×192로 확장했다. 면적은2.25배이고 기존 허브·사냥터 좌표와 지형 데이터를 보존했다. 실제 플레이 경계는10,8~188,188이다. 전체 크기와 실제 플레이 경계를 구분한다.
 
-SC2 기본 소환 아이콘과 해병 명령창을 사용한다. 새 일러스트·모델·별도 시각 디자인은 만들지 않는다. 툴팁은 기능과 사용 조건만 표시한다.
+| 공간 | 범위 | 연결 |
+|---|---|---|
+| 안전 전초기지 | x28~60,y48~82 | 두 사냥터의 월드 포탈 |
+| 기존 외곽 사냥터 | x72~124,y12~116,52×104 | 기존 포탈 유지 |
+| 북부 사냥터 | x80~184,y132~180,104×48 | 허브 북쪽 ‘북부 사냥터’ 포탈; 현장의 ‘전초기지’ 포탈 |
 
-## 다음 지역 공간 방향
+북부는 막힌 중간 공간으로 단절한다. 걷는 거리 자체를 늘리지 않고 허브에서 목적지 포탈을 우클릭해 접근한다. 북부 입구는 안전 여유 공간을 두고, 흙길 두 갈래와 여러 무리를 연결했다. SC2 기본 풀·흙·덤불·나무42개·암석11개를 추가했다. 별도 그림·모델·새 UI 디자인을 만들지 않았다. 미니맵은 실제 에디터 저장으로 재생성했다.
 
-현재 지형은 MCP로 확인한 128×128 셀이다. 허브28~60×48~82, 외곽 사냥터72~124×12~116을 유지하고, 다음 확장에서 192×192를 목표로 여유 영역을 마련한다. 전체 면적은 현재의2.25배가 되지만 이동 거리를 강제로 늘리지 않는다. 새 사냥터는 북쪽/동쪽 추가 영역의 독립 지역으로 만들고, 전초기지의 월드 포탈로 연결한다. 각 지역은 진입점·안전 여유 공간·분기 길·복수 적 무리를 갖춘다. 지역명과 포탈 목적지만 표시한다.
+북부는 저글링9·히드라12·바퀴9,10무리30마리다. 기존30마리12무리를 보존해 총60마리22무리다. 기존 체력·공격력·보상·강화 비용은 그대로다. 후반 지역의 히드라·바퀴 비중을 높였지만 실제 분당 효율과 전체 난도는 아직 측정하지 않았다. 개인별 입장·귀환을 구현하고 공유 적 상태는 유지한다. 실제2인 검증 전이다.
 
-이것은 확장 계획이며 아직 맵 크기를 변경하거나 두 번째 사냥터를 구현하지 않았다. 지형 변경은 원본 지역의 좌표를 보존하고 모든 지형 바이너리·보행·카메라 경계·미니맵을 함께 확인한다. 현 단계에서는 한 정본 맵 안에 지역을 늘려 같은 협동 세션과 개인 성장을 유지한다. 별도 맵 전환은 로비/저장 인계까지 검증한 뒤 별도로 결정한다.
+현재는 한 맵 안의 지역 이동이다. 별도 맵 전환·로비 인계는 구현하지 않았다.250레벨 전체 지역·보스·스킬·계급 성장은 기획으로 보존한다.
 
-## 근거와 검증
+## 비전투 귀환
 
-- [Blizzard 지도 생성 가이드](https://s2editor-guides.readthedocs.io/New_Tutorials/01_Introduction/005_Creating_a_Map/): 지도 크기32~256,8단위 증분. [Map Properties](https://s2editor-guides.readthedocs.io/New_Tutorials/01_Introduction/008_Map_Properties/): 전체 크기와 실제 플레이 영역은 구분한다.
-- [능력·명령창 예제](https://s2editor-guides.readthedocs.io/New_Tutorials/07_Lessons/090_Basic_Spellswap_System/): 데이터 능력/버튼과 Unit Uses Ability 이벤트를 연결하는 실제 제작 방법을 참고했다. 별도 메뉴 대신 기본 명령창을 사용했다.
-- [Crash RPG AbilData](https://github.com/Alzarath/Crash-RPG/blob/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/Base.SC2Data/GameData/AbilData.xml): 실제 읽은 능력/버튼 정의를 참고했다. 전체 스크립트는 가져오지 않았다.
-- [UA3 Galaxy](https://github.com/DrSuperGood/SC2-UA3/blob/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy) Frag Out Warning: 능력 이벤트에서 EventUnit을 처리하는 패턴을 읽었다. 자체 소유자/해병 확인과 전투 시간 검사를 적용했다.
-- [Blizzard ButtonData](https://github.com/SC2Mapster/SC2GameData/blob/master/mods/liberty.sc2mod/base.sc2data/GameData/ButtonData.xml)의 MassRecall 아이콘 경로를 실제 재사용했다. Marine UnitData 명령창/AbilArray와 Stimpack EffectInstant 정의도 읽었다. 아이콘 파일을 외부에서 내려받지 않고 SC2 의존성을 사용한다.
+해병 기본 명령창의 귀환(B) 또는 버튼 클릭으로 자기 해병만 전초기지로 돌아간다. 공격하거나 피해를 받은 뒤8초 동안 거부하고 남은 초를 표시한다. 무료이며 기존 현장 포탈도 유지한다. 귀환은 공유 적을 지우거나 다른 플레이어를 이동시키지 않는다. 회복·개인 저장은 기존 처리를 사용한다. 전투 시간은 세션 상태이며 영구 성장 저장에 넣지 않는다.
 
-첫 실행에서 클릭 귀환은 성공했지만 B키와 툴팁 키가 누락됐다. GameHotkeys와 실제 표시 문자열을 enUS/koKR 테이블에 추가했다. 통과/실패와 최종 실제 테스트 결과를 현재 제작 기준에 별도로 기록한다. 멀티 독립 귀환은 실제2클라이언트 시험 전이다.
+SC2 기본 소환 아이콘과 명령창을 사용한다. 툴팁에는 기능·조건만 표시한다. 성공 저장 메시지·개발 문구·중복 서비스 안내를 추가하지 않는다.
 
-최종 정본 ReturnHome_v4에서 한국어 귀환[B]/8초 조건을 확인했다. 실제 비전투 입장 후 B허브귀환과, 일반 공격3초 뒤B입력 시8초 제한/필드 유지가 통과했다. 현재 적 수치와 강화 비용은 변경하지 않았다. 정본 실행 전후 런타임/원본 SHA-256도 일치했다.
+## 실제 참고와 적용
+
+- [제작자 파일 형식 조사](https://github.com/sc2-arcade-watcher/sc2-file-format-docs): MapInfo v39 스트림·무결성 공식과 지형 MASK/VTCL/CLIF 등을 실제 읽었다. 새 MCP staging 안에서 기존 좌표 데이터를 보존해 확장하는 코드에 적용했다. 제작자 Galaxy 파일을 복사하지 않았다.
+- [Tristram 실제 필드](https://media.forgecdn.net/attachments/160/327/Tristram_6.JPG): 북부 제작 전에 다시 보고 굽은 흙길·풀 경계·암석/나무 배치 방식을 참고했다. 제작자 장면·그림·모델을 가져오지 않았다.
+- [UA3 Galaxy](https://github.com/DrSuperGood/SC2-UA3/blob/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy),30360~30410: 지역 내부 명령/밖으로 나가면 귀환 패턴을 다시 읽었다. 기존 자체 순찰 루프를 북부 무리에도 적용했다.
+- [지도 생성](https://s2editor-guides.readthedocs.io/New_Tutorials/01_Introduction/005_Creating_a_Map/), [Map Properties](https://s2editor-guides.readthedocs.io/New_Tutorials/01_Introduction/008_Map_Properties/): 전체 크기·플레이 영역 구분을 확인했다.
+- [능력·명령창 예제](https://s2editor-guides.readthedocs.io/New_Tutorials/07_Lessons/090_Basic_Spellswap_System/), [Crash RPG AbilData](https://github.com/Alzarath/Crash-RPG/blob/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/Base.SC2Data/GameData/AbilData.xml), UA3 Frag Out Warning: 기본 버튼/능력 이벤트 패턴을 읽고 자체 소유자·해병·전투 시간 검사에 적용했다.
+- [Blizzard ButtonData](https://github.com/SC2Mapster/SC2GameData/blob/master/mods/liberty.sc2mod/base.sc2data/GameData/ButtonData.xml): MassRecall 아이콘 경로를 SC2 의존성으로 재사용했다. Marine 명령창/Stimpack EffectInstant도 읽었다.
+
+## 실제 검증과 한계
+
+정본에서 일반 포탈 북부 입장, 입구 무리와 정상 전투·보상, 전투 중B8초 거부, 안전 입구에서 가만히 선 채B만 눌러 허브 귀환을 확인했다. 재실행 후 군수590·공격/체력/방어3·속도2가 실제 무기고 창에 복원됐다. 세션 처치/표시 등급은 기존 세션 카운터로 재시작되며, 영구 레벨·계급 저장 구현을 의미하지 않는다.
+
+퇴각하며 포탈에 접근한 뒤B를 누른 한 장면은 포탈이 먼저 작동했을 수 있어 B검증에서 제외했다. 별도 정지 상태 시험으로 확인했다. 잘못 추정한 MapInfo 위치는 쓰기 전 검사에서 거부됐고 실제 스트림을 파싱해 수정했다. 미니맵 캐시가 유지되는 문제는 새 staging 캐시를 백업·제거하고 에디터로 재생성해 해결했다.
+
+정본/설치 관리 런타임 복사본의 실행 전후SHA-256이 일치했고 런타임 오류 로그는 관찰되지 않았다. 후보 MarineGrowing_NorthField_v2,정본SHA-256:75ae288c4dc384dc93f5f6a028960af879ee3ec8f1b9c6276cc4b9d0eb4c890c. 실제 Print Screen을 읽었으며 외부 강제 이동·처치·재화 지급·시간 가속을 사용하지 않았다.
+
+북부 깊은 무리·모든 길/경계·장기 효율·실제2인 협동·사람의 재미/조작감은 미검증이다. 다음은 북부 깊은 동선과 정상 전투·무리 간격 검증이다. 기존 밸런스가 괜찮다는 사용자 평가는 기존 구간에 대한 제한적 근거다.
