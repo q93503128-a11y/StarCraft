@@ -4,7 +4,7 @@
 
 이번 작업은 [UA3/Crash RPG 제작자 코드](design/field-route-and-ux-refinement.md)와 [Deep Rock Galactic·Warframe 공개 자료](design/external-systems-review-and-content-plan.md)를 다시 대조했습니다. 주 목표와 선택 목표 분리, 솔로 완료 가능, 행동 방식에 따른 재방문을 기준으로 기록했습니다. 외부 코드는 읽고 원리만 참고했으며 스크립트·모델·레이아웃은 복사하지 않았습니다.
 
-전용 신호 계약 17개와 필드 UX 117개, 회귀 90개 등 코드 어댑터 검사가 통과했습니다. MCP 문서 검증 오류 0, Galaxy 문법 진단 오류 0입니다. 후보와 유일 정본 `RPG_Test.SC2Map` SHA-256은 `033e8a321612fc8735ece81baeb5044a0e221723b2bab6fff5ebad917036896a`입니다. 실행 전후 정본/runtime 해시가 일치하고 ScriptError·Alerts 로그는 비었습니다. 실제 Print Screen으로 허브와 외곽 필드를 읽었지만 새 신호 임무를 활성화하지는 못했습니다. 최종 좌표 조작은 최신 Sky screenshotId를 얻지 못해 검증 증거로 쓰지 않습니다. 신호 임무 시작·협동·보상과 정상 플레이의 난도·재미는 미검증입니다.
+전용 신호 계약 18개와 필드 UX 117개, 회귀 90개 등 코드 어댑터 검사가 통과했습니다. MCP 문서 검증 오류 0, Galaxy 문법 진단 오류 0입니다. 후보와 유일 정본 `RPG_Test.SC2Map` SHA-256은 `033e8a321612fc8735ece81baeb5044a0e221723b2bab6fff5ebad917036896a`입니다. 실행 전후 정본/runtime 해시가 일치하고 ScriptError·Alerts 로그는 비었습니다. 실제 Print Screen으로 허브와 외곽 필드를 읽었지만 새 신호 임무를 활성화하지는 못했습니다. 최종 좌표 조작은 최신 Sky screenshotId를 얻지 못해 검증 증거로 쓰지 않습니다. 신호 임무 시작·협동·보상과 정상 플레이의 난도·재미는 미검증입니다.
 
 정본 백업, 후보, 캡처, 런타임 해시·명령·로그 기록은 로컬 개발 디렉터리와 `marine-growing/verification`에 보존합니다.
 
