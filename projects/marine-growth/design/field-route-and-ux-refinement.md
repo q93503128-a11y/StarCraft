@@ -80,3 +80,12 @@ MCP 문서 검사10분류 오류0, 기존 경고23(기본 자산 참조22/이전
 [UA3 제작자 원본](https://github.com/DrSuperGood/SC2-UA3/blob/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 `gf_SpawnUndead`(보존 코드 7892–7995행)가 생성 유닛을 그룹으로 모으고 공통 명령 및 추적을 적용하는 부분, [Crash RPG 제작자 원본](https://github.com/Alzarath/Crash-RPG/blob/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 `gf_SpawnAlienLoop`(596–625행)가 하나의 출현 지점에서 여러 적을 생성하는 부분을 읽었습니다. 그룹 단위 조우라는 아이디어만 현재 고정 출현 쌍/삼인조에 맞게 적용했고, 외부 코드는 복사하지 않았습니다.
 
 114개 함수 어댑터·카탈로그·회귀 검사 통과, Galaxy 문법 오류 0, MCP 검증 오류 0 및 기존 경고 23개입니다. 후보와 정본 해시는 `3bd9f155814355b8c8e103882784a965993b3d112c4a6b087a8ef756cc40c787`로 일치합니다. 실행 전후 canonical/runtime 해시가 맞고 오류 로그도 없습니다. 게임 Print Screen 우회 캡처로 허브를 읽어 확인했지만, Sky 프레임 캡처가 타임아웃되어 현장 조작은 진행하지 못했습니다. 따라서 캠프 리스폰 동작은 아직 정상 플레이 중 확인되지 않았습니다. 상세 근거: `marine-growing/verification/2026-10-07-camp-respawn.md`.
+
+
+## 2026-10-07 캠프 성격과 합동 대응
+
+기존 세 적 종의 역할을 사냥터 행동으로 나눴습니다. 저글링은 짧은 감지 거리와 빠른 순찰, 히드라리스크는 긴 감지 거리와 좁고 느린 순찰, 바퀴는 중간 거리와 중간 순찰 주기를 씁니다. 한 적이 해병을 발견하면 같은 출현 쌍/삼인조의 살아 있는 동료가 같은 대상을 지원합니다. 지원 대상은 같은 필드에 있고 현재 캠프의 10거리 추격 범위 안에 있어야 하며, 적이 처치된 뒤 남은 표적 정보는 다음 전투에 재사용하지 않습니다. 기존 적 유형·수·체력·피해·보상·출현점과 지형, UI, Bank는 유지했습니다.
+
+[UA3 제작자 원본](https://github.com/DrSuperGood/SC2-UA3/blob/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 `gf_SpawnUndead` 그룹 생성과 공통 공격 명령을 읽고, [Crash RPG 제작자 원본](https://github.com/Alzarath/Crash-RPG/blob/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 `gf_SpawnAlienLoop` 고정 출현점·순회 명령을 읽었습니다. 같은 캠프의 목표 공유와 기존 순찰 경로에 적 종별 크기/주기를 적용했습니다. 코드는 복사하지 않았습니다.
+
+117개 전체 어댑터/회귀 검사와 21개 집중 검사가 통과했고 Galaxy 문법 오류 0, MCP 오류 0, 기존 경고 23개입니다. 후보/정본 SHA-256은 `56ab7221a486cf4fd5b38620edb2be4788d2fd774bf50dfb59f75d9009dcae60`로 같고, 전체화면 창 실행 후에도 런타임 해시가 같으며 오류 로그가 비었습니다. Print Screen 우회 캡처로 허브를 읽었습니다. Sky 프레임 캡처가 시간 초과되어 필드 교전은 진행하지 않았으므로 AI 동작은 아직 게임 플레이 중 검증되지 않았습니다. 세부 구현·후보 v2·백업·제한은 `marine-growing/verification/2026-10-07-camp-roles.md`에 기록했습니다.
