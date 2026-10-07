@@ -116,3 +116,12 @@ UA3의 mission objective 생성·갱신과 선택 목표 상태, Crash RPG의 �
 [UA3 고정 리비전 원본](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 미션 구성과 선택 목표 상태/갱신 흐름, [Crash RPG 고정 리비전 원본](https://raw.githubusercontent.com/Alzarath/Crash-RPG/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 선택 목표 생성·진행 수 표기를 다시 읽었습니다. 주/선택 목표를 분리하고 스톡 Objective/TextTag에 진행 상태를 갱신하는 원리를 참고해 현재 코드 구조에 맞게 직접 구현했습니다. 외부 코드·모델·레이아웃은 가져오지 않았고, 새 자산도 추가하지 않았습니다.
 
 새 동작 어댑터 9개 시나리오와 기존 선택 계약·경로 브리핑·필드 UX/성장/작전/서비스/화물 회귀 검사를 통과했습니다. Galaxy 문법 오류 0, MCP 문서 검증 오류 0·기존 경고 23개입니다. 임시 진행 상태만 추가했으며 Bank는 schema 5/27키 그대로입니다. 후보와 정본 SHA-256: `ef4544eed9ce31e3224b46ff151fdb7a487e8015a34a8c73c40dfcbfa9b89bf2`; 설치 직전 백업 `RPG_Test.2026-10-07T07-31-14-988Z.SC2Map` (기존 정본 hash `cec83a12867769cd4da52d27f1f5a830a9d7d8e95878774139ce618a95108af6`). 정본은 MCP에서 재개방했고, canonical/runtime 사전 해시가 일치한 상태로 `-displaymode 1` 실행했습니다. 실행 후에도 두 해시는 후보 해시와 일치했고 ScriptError/Alerts 로그는 비었으며 소유 테스트 프로세스는 종료했습니다. Computer Use inventory에 `apps: []`만 보여 창을 선택할 수 없어 Print Screen은 캡처하지 않았습니다. 따라서 실제 목표 UI의 시각 품질, 엔진 이동·점령·협동·보상 동작은 미검증입니다.
+
+
+## 2026-10-07 신호망 선택 임무와 비콘 접근
+
+외곽 경로 0의 선택 임무를 기존 스톡 비콘 두 곳을 순서대로 조사하는 방식으로 바꿨습니다. 솔로는 안전한 상태에서 각 4초, 근처 참가자 2명 이상이면 진행 속도가 2배이며 주변 적은 진행을 멈춥니다. 참여자별 보상과 진행 표시는 기존 선택 목표 체계에 연결했고 Bank 필드나 새 자산은 추가하지 않았습니다. 기본 비콘이 타깃 불가라 직접 선택이 안 되는 점을 처리하도록 비콘 3.5 이내 지면 이동 명령도 접근 경로에 연결했습니다.
+
+[UA3 고정 원본](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 작전 단계/선택 목표 흐름과 [Crash RPG 고정 원본](https://raw.githubusercontent.com/Alzarath/Crash-RPG/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 목표 카운터·상태 갱신 코드를 다시 읽어 구조만 적용했습니다. 외부 함수나 자산은 복사하지 않았습니다.
+
+전용 시나리오 17개를 포함한 전체 회귀 묶음을 통과했습니다. 실제 Print Screen으로 허브와 필드 화면을 캡처해 읽었고, 최종 후보/정본/런타임 해시는 `033e8a321612fc8735ece81baeb5044a0e221723b2bab6fff5ebad917036896a`로 같으며 ScriptError·Alerts가 없습니다. 다만 N 표식의 미니맵 클릭은 허브로 돌아갔고 최종 필드 캡처에 신호 임무 패널은 나타나지 않았습니다. 엔진에서 임무 시작·진행·협동·보상은 아직 미검증입니다. 상세 기록은 `marine-growing/verification/2026-10-07-signal-analysis.md`에 있습니다.
