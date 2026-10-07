@@ -60,3 +60,14 @@ MCP 문서 검사10분류 오류0, 기존 경고23(기본 자산 참조22/이전
 [Deep Rock Galactic 공식 자료](https://store.steampowered.com/news/posts/?appids=548430&enddate=1575034218&feed=steam_community_announcements)에서 주 임무와 선택 부가 목표를 겹치되 완료 조건은 분리하는 원리를 참고했습니다. 코드 패턴은 [Crash RPG 제작자 원본](https://raw.githubusercontent.com/Alzarath/Crash-RPG/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 Side Mission Objective Init / Drop Pod / Side Mission Loop(보존본 약 2680–2768행), Nydus side objective count 갱신(약 1184–1214행)과 [UA3 제작자 원본](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 optional objective state(보존본 약 9277행)를 읽었습니다. 이 코드들은 활성 조건·카운트 노출 방식을 공부할 때만 사용했고, 함수나 스크립트를 복사하지 않았습니다. 실제 재사용 자산은 기존 SC2 Objective/TextTag, 적 3종과 출현점뿐이며, UI 레이아웃·모델·아트는 추가하지 않았습니다. 목표 카운트와 기여 기록은 한 판의 임시 상태라 Bank 필드 수는 기존 27개를 유지합니다.
 
 네이티브 어댑터/카탈로그/회귀 묶음 112개 통과(이번 묶음의 선택 목표 전용 검사 7개 포함), Galaxy 문법 오류 0, MCP 문서 검증 오류 0·기존 경고 23개입니다. 후보/정본의 파일 수는 40개이고 MCP에서 수정한 맵 항목은 authored Galaxy 하나입니다. 후보/정본 SHA-256: `b033b27eba2e3a5749c5fb390f3e0c0ec1fafc73920cd90936454a60bae9a8bc`. 정본을 MCP에서 다시 연 뒤 `pipeline.mjs`로 `-displaymode 1` 실행했고, 시작 전/후 canonical/runtime 해시가 일치하며 ScriptError·Alerts 로그가 없었습니다. Sky 캡처가 연속 timeout되어 선택 목표가 실제 화면에 나타나는지 확인하지 못했습니다. 게임에서 목표 활성화·처치·추가 보상·협동은 플레이 검증되지 않았습니다. 이 빌드를 일반 플레이 완료라고 표현하지 않습니다.
+
+
+## 2026-10-07 야영지 순찰 경로와 보급 순환
+
+기존 60개 적 출현점을 세 가지 네 지점 순찰 모양으로 나눴습니다. 각 점은 야영지 중심에서 2.5 거리 안에 있고, 북부 사냥터는 외곽과 반대 방향으로 돕니다. 적 추격·복귀·종류·수·공격력·보상은 그대로입니다. 보급 지점 세 곳도 기존 안전 전환 규칙을 유지하면서 외곽은 정방향, 북부는 역방향으로 순환시킵니다. 새 유닛·건물·모델·지형·UI는 추가하지 않았습니다.
+
+고정 리비전 [UA3 MapScript](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 PatrolLoop/PolicePatrolLoop(보존본 19326–19382, 26738–26783행)를 다시 읽었습니다. 경유지 인덱스와 왕복 전환 원리를 참고해 현재 야영지에 맞는 자체 경로를 작성했습니다. 코드나 자산은 가져오지 않았습니다.
+
+네이티브 어댑터·카탈로그·회귀 검사 112개 통과, Galaxy 문법 오류 0, MCP 검증 오류 0·기존 경고 23개입니다. 정본 후보 SHA-256 `9913818158e5a24a5f3258fa263143c723b0f7da9352f880989c654760dbe5a9`; 전 설치 정본은 `b033b27eba2e3a5749c5fb390f3e0c0ec1fafc73920cd90936454a60bae9a8bc`였습니다. 정본 재열기 후 `-displaymode 1`로 실행했고 시작 전/종료 후 canonical/runtime 해시가 같으며 ScriptError/Alerts 로그가 없었습니다. 이는 로드/무결성 확인이며 실제 순찰 이동, 길찾기, 수송 완료, 협동 테스트는 아닙니다.
+
+이번에는 우회 캡처를 사용했습니다. 게임의 Print Screen 결과를 `captures/latest.png`와 `patrol-circuits-hub` 체크포인트로 수집해 실제 이미지를 다시 읽었습니다. 허브 시설·포탈 이름·목표 목록·기본 명령창을 확인했습니다. 이 화면에는 사냥터나 이동 중인 적이 보이지 않아 순찰 화면 검증은 아직 없습니다. 전체 기록은 `marine-growing/verification/2026-10-07-patrol-circuits.md`입니다.
