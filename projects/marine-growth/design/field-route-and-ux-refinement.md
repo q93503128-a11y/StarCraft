@@ -10,7 +10,7 @@
 
 Galaxy 문법 검사 오류 0, MCP 문서 검사 오류 0, 기존 실제 함수 어댑터·회귀 확인 100개 통과입니다. 이는 새 수송 순환과 엔진 순찰 자체를 플레이 검증했다는 뜻은 아닙니다. 정본 `RPG_Test.SC2Map`은 후보 해시 `b1e1742ede8a18f2651dfa6c19d282438af212f5ad551d958ff13ee9e1eb0779`로 교체했고, 정본 재열기와 창 모드 실행에서 canonical/runtime 해시가 일치하며 오류 로그가 없었습니다. 정상 수송 전달·지역 순찰·협동은 검증하지 않았습니다.
 
-화면 캡처는 이번 실행에서 수행하지 못했습니다. 이 환경에는 스킬이 지정한 node_repl/ Sky 도구가 노출되지 않았으므로 최신 화면 디자인을 확인했다고 기록하지 않습니다.
+최신 화면은 computer-use Sky로 캡처를 시도했습니다. 첫 `get_window_state`가 `FrameArrived` timeout, 창을 새로 찾아 재시도한 캡처도 `window capture` timeout으로 실패해 실제 이미지는 확인하지 못했습니다. 이전 캡처를 이번 빌드의 시각 증거로 사용하지 않습니다.
 
 ## 이전 월드 UX 묶음
 
@@ -51,3 +51,12 @@ MCP 문서 검사10분류 오류0, 기존 경고23(기본 자산 참조22/이전
 ## 다음 묶음
 
 정상 화면 캡처 도구가 연결되면 정본의 허브·외곽·북부 사냥터를 한 번에 확인하고, 표식 전환과 순찰 무리의 화면 가독성을 묶어서 손봅니다. 이후 수송 전달·지역 순찰·협동은 사용자의 일반 플레이로 검증합니다. 현재 범위 밖 직업·보스·인벤토리는 추가하지 않습니다.
+
+
+## 2026-10-07 선택 부가 계약
+
+각 사냥터의 정찰 경로 세 개에 주 임무와 별도로 선택할 수 있는 부가 목표를 연결했습니다. 경로마다 이미 존재하는 인접 적 출현점 두 곳을 지정해, 참가자가 해당 무리를 소탕하면 선택 목표가 진행됩니다. 주 임무 소탕과 진지 확보를 지연시키지 않으며, 메인 소탕이 끝난 뒤 진지 확보 전에 마저 완료할 수도 있습니다. 부가 목표 두 곳을 모두 정리했을 때만 추가 보상을 지급하고, 실제 처치 기여자에게 개인별로 더합니다. 기존 정찰 보상과 별도 합산 지급이라 저장/자원 적용 실패 시 재시도하고 성공한 플레이어에게 중복 지급하지 않습니다.
+
+[Deep Rock Galactic 공식 자료](https://store.steampowered.com/news/posts/?appids=548430&enddate=1575034218&feed=steam_community_announcements)에서 주 임무와 선택 부가 목표를 겹치되 완료 조건은 분리하는 원리를 참고했습니다. 코드 패턴은 [Crash RPG 제작자 원본](https://raw.githubusercontent.com/Alzarath/Crash-RPG/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 Side Mission Objective Init / Drop Pod / Side Mission Loop(보존본 약 2680–2768행), Nydus side objective count 갱신(약 1184–1214행)과 [UA3 제작자 원본](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 optional objective state(보존본 약 9277행)를 읽었습니다. 이 코드들은 활성 조건·카운트 노출 방식을 공부할 때만 사용했고, 함수나 스크립트를 복사하지 않았습니다. 실제 재사용 자산은 기존 SC2 Objective/TextTag, 적 3종과 출현점뿐이며, UI 레이아웃·모델·아트는 추가하지 않았습니다. 목표 카운트와 기여 기록은 한 판의 임시 상태라 Bank 필드 수는 기존 27개를 유지합니다.
+
+네이티브 어댑터/카탈로그/회귀 묶음 112개 통과(이번 묶음의 선택 목표 전용 검사 7개 포함), Galaxy 문법 오류 0, MCP 문서 검증 오류 0·기존 경고 23개입니다. 후보/정본의 파일 수는 40개이고 MCP에서 수정한 맵 항목은 authored Galaxy 하나입니다. 후보/정본 SHA-256: `b033b27eba2e3a5749c5fb390f3e0c0ec1fafc73920cd90936454a60bae9a8bc`. 정본을 MCP에서 다시 연 뒤 `pipeline.mjs`로 `-displaymode 1` 실행했고, 시작 전/후 canonical/runtime 해시가 일치하며 ScriptError·Alerts 로그가 없었습니다. Sky 캡처가 연속 timeout되어 선택 목표가 실제 화면에 나타나는지 확인하지 못했습니다. 게임에서 목표 활성화·처치·추가 보상·협동은 플레이 검증되지 않았습니다. 이 빌드를 일반 플레이 완료라고 표현하지 않습니다.
