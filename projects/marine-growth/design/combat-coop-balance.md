@@ -115,3 +115,12 @@ Deep Rock Galactic 제작진은 1인 게임에서 적 무리와 체력을 낮추
 Blizzard는 SC2 협동 임무에서 플레이어가 기술에 맞는 난도를 선택하고 더 높은 난도에서 더 많은 경험치를 받게 했습니다. [협동 임무 소개](https://news.blizzard.com/en-gb/article/19930660/legacy-of-the-void-features-co-op-missions). 한편 [Lock & Load 제작 회고](https://news.blizzard.com/en-gb/article/19982536/introducing-lock-load)는 두 플레이어 모두의 점령 협력이 필수인 독특한 목표를 실험했고, 이를 위해 큰 군대가 움직일 맵 경로·폭·적 배치와 목표를 함께 다시 조정했다고 설명합니다. 현재 해병 성장 프로토타입은 솔로/협동 모두가 기본 정찰을 할 수 있어야 하므로 이 필수 동시 협력은 기본 목표에 넣지 않고 선택 목표에만 허용하는 편이 맞습니다.
 
 현재 신호망 선택 계약은 주 임무 완료/기본 보상과 선택 보너스를 분리합니다. 21개 신호 계약, 18개 선택 계약 어댑터 테스트가 이를 확인하지만 플레이 난도·재미를 증명하지는 않습니다. 이번 대조에서는 수치·맵 아카이브를 수정하지 않았고 사람의 전투/체감 테스트도 하지 않았습니다. 외부 코드나 자산을 복사하지 않았습니다.
+
+
+### 제작자 코드 패턴 대조
+
+- [Crash RPG 고정 리비전](https://raw.githubusercontent.com/Alzarath/Crash-RPG/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 `gt_SideMObjectiveInit`(약 2680행)은 선택 목표를 처음엔 숨김으로 만들고, `gf_SideMNydusWorm`/드롭 포드 경로(약 1184–1214행)는 목표를 활성화하고 남은 수에 따라 이름을 갱신합니다. `gt_SideMissionLoop`는 서로 다른 사이드 미션 유형을 골라 켭니다.
+- [UA3 고정 리비전](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 `gf_SideMNydusWorm`(보존본 약 9290행)은 생성한 대상을 그룹에 기록하고 선택 Objective를 활성화하며 목표 카운트를 갱신합니다. 이는 목표 표시를 생성·상태·진척과 한 흐름으로 묶는 패턴입니다.
+- [LunaCoop 고정 리비전 변경 기록](https://raw.githubusercontent.com/Aeroluna/LunaCoopMod/a0c5ec9b33f34616e80e124e45b0ab5ea7a6b987/CHANGELOG.md)은 선택 행동을 단순 자원 공제 대신 적 처치 후 보상을 회수하거나 임시 효과로 보유하는 구조로 바꾼 뒤, 과한 현상금 보상(자원/회복/이속)을 낮춘 조정을 적었습니다.
+
+이 세 코드는 읽어 비교했을 뿐 가져오지 않았습니다. 현재 맵은 기존 Beacon·적 출현점·개인 Objective/TextTag를 사용하며, 신호 선택 목표 완료가 주 임무 보상과 진행을 막지 않는 코드 계약을 유지합니다. 이 검사는 단위 어댑터 수준이며 엔진 화면의 활성/완료와 사람의 난도 평가는 별개입니다.
