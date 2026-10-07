@@ -11,7 +11,7 @@
 ## 문서
 
 - [신호망 선택 임무와 비콘 접근](design/field-route-and-ux-refinement.md): 신호기 2곳 조사, 실제 코드 경계, 캡처 및 미검증 항목
-- [외부 콘텐츠 구조와 난이도 가이드](design/field-route-and-ux-refinement.md): DRG/Warframe 공개 시스템 비교와 우리 범위에 적용할 원칙
+- [외부 콘텐츠 구조와 난이도 가이드](design/external-systems-review-and-content-plan.md): DRG/Warframe 공개 시스템 비교와 우리 범위에 적용할 원칙
 - [사냥터 경로와 월드 UX 개선](design/field-route-and-ux-refinement.md): 최신 확보 후보6곳·접근자 보호·장식 이름 제거·기본 목표 툴팁 미리보기·검증 경계
 - [지역 조사와 협동 활동 구현](design/field-surveys-and-coop.md): 최신 조사6지점·개인 기록·협동 속도·진지 확보 가속·묶음 UI/코드 검사
 - [목표 안내와 허브 시설 구현](design/navigation-and-world-services.md): 최신 실제 코드, N 목적지·의무실·보급고·취소·체력 보존과 묶음 UI 검사
@@ -54,3 +54,10 @@ Arcade 진행 저장의 가능 범위와 한계는 [SC2 Banks 조사](../../rese
 - [탐험 보급품과 월드 UX](design/exploration-and-world-ux.md): 개인별 영구 회수·감시탑 정찰·포탈 가시성,실제 참고 코드와 검증
 
 - [탐험 갈래길과 지역별 바닥](design/landmark-routes-and-region-surfaces.md): 기존 탐험 지점의 연결 길·기본 포장·수목 시야,정상 접근과 회수 검증
+
+
+## 2026-10-07 외부 난도 대조 및 코드 회귀
+
+Deep Rock Galactic 제작진의 솔로/2인 적 수·체력 조정 기록과 Blizzard의 SC2 Co-op 난도 선택·필수 협력 목표 제작 회고를 다시 대조했습니다. 기본 작전은 솔로 완수 가능하게 유지하고, 협동 위협은 적 체력 벽보다 소규모 추가 편성/선택 행동으로 조정하며, 높은 난도는 선택 변형으로 분리하는 원칙을 설계 문서에 추가했습니다. 자세한 근거는 [협동 난도 대조](design/combat-coop-balance.md#2026-10-07-외부-난도-근거-재대조)와 [검증 기록](../../../../../ChatGPT/테스트/marine-growing/verification/2026-10-07-difficulty-reference-audit.md)에 있습니다.
+
+이번 빠른 코드 회귀는 신호 목표 21, 선택 계약 18, 작전 회귀 30, field UX 회귀 90/통합 117, 성장 콘텐츠·스킬·조사·세계 서비스 묶음까지 통과했습니다. MCP 문서 검사와 Galaxy 구문 검사 오류는 0입니다. 난도/재미를 위한 전투 플레이 테스트는 하지 않았고, 맵 파일은 변경하지 않았습니다. 신호 목표가 게임 안에서 활성화되는 장면도 아직 확인되지 않았습니다.
