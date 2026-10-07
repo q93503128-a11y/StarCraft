@@ -156,3 +156,12 @@ LunaCoopMod의 실제 [Skyfall.SC2Map generated MapScript.galaxy](https://raw.gi
 
 
 같은 고정 리비전 변경 기록은 현상금 변이의 자원/회복/이속 보상이 과해 확률과 지급량을 낮춘 조정도 기록합니다. 우리는 개발자의 플레이 밸런스 시험은 하지 않되, 이 제작 기록에서 배운 대로 선택 행동의 보상 상한을 코드 계약으로 관리하고 일반 플레이 체감은 사용자에게 남깁니다.
+
+
+## 2026-10-07 주 임무와 선택 목표 표시 분리
+
+실제 허브 Print Screen에서 레벨 진행과 포탈 근처 사냥터 미리보기는 기본 UI의 보너스 목표 묶음에 표시되는 것을 다시 확인했다. 이 두 항목은 허브의 보조 안내라 해당 그룹이 맞다. 본 작전 목표는 사냥터에 있을 때만 표시되므로 허브 캡처에서 주 목표 분류를 판단할 수 없다.
+
+SC2 native-reference의 `ObjectiveCreateForPlayers(name, description, state, inPrimary, players)` 선언과 Crash RPG의 고정 리비전 `c83cbb612affb3d62d3a05eb479521bbb648e570` 목표 생성 방식을 대조하고, 작전 목표의 `inPrimary`만 `true`로 바꿨다. 선택 목표, 레벨 안내, 포탈 미리보기는 계속 보너스 그룹에 남는다. 외부 코드나 자산은 가져오지 않았다.
+
+주 목표 계약 및 기존 선택 목표/현장 UX/성장/서비스 코드 회귀를 통과했다. MCP 10분류 검사 오류 0, Galaxy 문법 오류 0이다. 정본/런타임 전후 SHA-256은 `77c37fc11134b8e9c792c64d78f347e47336006da048d0786b97d803c4e4cce8`로 유지됐고 SC2 ScriptError/Alerts 로그는 비었다. 실제 허브 Print Screen은 확인했으나 사냥터의 활성 주 목표 표시 자체는 이번에 확인하지 않았다. 전투, 난도, 밸런스, 조작감이나 재미 테스트는 하지 않았다. 상세 기록은 로컬 `marine-growing/verification/2026-10-07-primary-objective-ui.md`에 남겼다.
