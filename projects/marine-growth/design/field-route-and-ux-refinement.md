@@ -107,3 +107,12 @@ UA3의 mission objective 생성·갱신과 선택 목표 상태, Crash RPG의 �
 출격 전 통신 비콘의 선택 목표 설명을 경로별 실제 이름으로 구체화했습니다. 여섯 경로가 각각 측면 거점, 매복지, 보급로 중 현재 경로의 장소명을 보여줍니다. 기존 임무/보상은 그대로이고 새 오브젝트·자산은 추가하지 않았습니다. 각 경로에서 5/6기 주 임무 수, 서로 다른 선택 목표 이름, 보상, 진행 중 전환, 다음 경로 갱신을 코드 어댑터로 확인했습니다. 전체 기존 UX/콘텐츠 검사 117개, 선택 계약 18개, 화물/순찰/야영지 21개도 통과했습니다.
 
 최종 후보 `MarineGrowing_RouteBriefings_20261007_v2.SC2Map`과 canonical SHA-256은 `cec83a12867769cd4da52d27f1f5a830a9d7d8e95878774139ce618a95108af6`입니다. 새 백업은 `MarineGrowingBackups/RPG_Test.2026-10-07T07-05-46-904Z.SC2Map`. 정본 재열기와 `-displaymode 1` 실행 후 canonical/runtime 해시가 같고 오류 로그가 비었습니다. Sky 화면은 `FrameArrived` 실패 후 새 창 목록을 읽고 재시도했으나 `window capture` timeout이 났습니다. 이번 최종 빌드의 실제 UI 화면은 보지 못했으며 정상 작전 플레이도 하지 않았습니다.
+
+
+## 2026-10-07 보급로 점령 계약
+
+보급로 이름만 다른 잔당 소탕이던 경로 3개를 별도 성공 방식으로 바꿨습니다. 부가 목표는 이미 배치된 스톡 비콘으로 이동해 주변 적을 정리하고 8초 동안 점령하는 것입니다. 적이 비콘 반경 7 안에 남으면 진행이 멈춥니다. 협동 인원이 동시에 지키면 진행 시간이 절반으로 줄어듭니다. 경로 1·2의 측면 거점/매복지는 기존처럼 지정 잔당 2기를 처치하며, 경로 3은 이 점령 계약을 사용합니다. 주 임무는 계속 별도로 진행되며 완료를 지연시키지 않습니다.
+
+[UA3 고정 리비전 원본](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 미션 구성과 선택 목표 상태/갱신 흐름, [Crash RPG 고정 리비전 원본](https://raw.githubusercontent.com/Alzarath/Crash-RPG/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 선택 목표 생성·진행 수 표기를 다시 읽었습니다. 주/선택 목표를 분리하고 스톡 Objective/TextTag에 진행 상태를 갱신하는 원리를 참고해 현재 코드 구조에 맞게 직접 구현했습니다. 외부 코드·모델·레이아웃은 가져오지 않았고, 새 자산도 추가하지 않았습니다.
+
+새 동작 어댑터 8개 시나리오와 기존 선택 계약·경로 브리핑·필드 UX/성장/작전/서비스/화물 회귀 검사를 통과했습니다. Galaxy 문법 오류 0, MCP 문서 검증 오류 0·기존 경고 23개입니다. 임시 진행 상태만 추가했으며 Bank는 schema 5/27키 그대로입니다. 후보와 정본 SHA-256: `ef4544eed9ce31e3224b46ff151fdb7a487e8015a34a8c73c40dfcbfa9b89bf2`; 설치 직전 백업 `RPG_Test.2026-10-07T07-31-14-988Z.SC2Map` (기존 정본 hash `cec83a12867769cd4da52d27f1f5a830a9d7d8e95878774139ce618a95108af6`). 정본은 MCP에서 재개방했고, canonical/runtime 사전 해시가 일치한 상태로 `-displaymode 1` 실행했습니다. 런타임 종료·로그 확인과 실제 Print Screen 검토 결과는 완료 후 별도 덧붙입니다. 엔진 이동·점령·협동·보상 동작과 시각 품질은 이 코드 검사만으로 확인했다고 주장하지 않습니다.
