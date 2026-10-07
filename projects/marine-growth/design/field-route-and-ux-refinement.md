@@ -125,3 +125,10 @@ UA3의 mission objective 생성·갱신과 선택 목표 상태, Crash RPG의 �
 [UA3 고정 원본](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 작전 단계/선택 목표 흐름과 [Crash RPG 고정 원본](https://raw.githubusercontent.com/Alzarath/Crash-RPG/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 목표 카운터·상태 갱신 코드를 다시 읽어 구조만 적용했습니다. 외부 함수나 자산은 복사하지 않았습니다.
 
 전용 시나리오 17개를 포함한 전체 회귀 묶음을 통과했습니다. 실제 Print Screen으로 허브와 필드 화면을 캡처해 읽었고, 최종 후보/정본/런타임 해시는 `033e8a321612fc8735ece81baeb5044a0e221723b2bab6fff5ebad917036896a`로 같으며 ScriptError·Alerts가 없습니다. 다만 N 표식의 미니맵 클릭은 허브로 돌아갔고 최종 필드 캡처에 신호 임무 패널은 나타나지 않았습니다. 엔진에서 임무 시작·진행·협동·보상은 아직 미검증입니다. 상세 기록은 `marine-growing/verification/2026-10-07-signal-analysis.md`에 있습니다.
+
+
+## 2026-10-07 외부 게임에서 본 목표 다양성과 적정 난도
+
+[Deep Rock Galactic 제작진의 1~4인 설계 설명](https://store.steampowered.com/news/posts/?appids=548430&enddate=1550847303)은 인원수에 맞춰 적 난도를 조정하고, 솔로 임무가 어렵다면 난도 선택을 낮춰도 된다고 안내합니다. [Update 31 공식 기록](https://store.steampowered.com/news/posts/?appids=548430&enddate=1596120932)은 부가 목표 세 종류로 임무 다양성을 늘리고 필요 수량을 조절해 진행 페이스를 손봤습니다. [Warframe 공식 Star Chart 안내](https://www.warframe.com/en/news/star-chart)는 노드 해금형 기본 경로와 같은 노드의 강한 적·높은 보상 재도전 경로를 분리합니다. 제작자 코드 비교는 기존 UA3/Crash RPG 고정 소스 기록을 참조했습니다.
+
+우리 기본 작전은 솔로 완료 가능, 선택 목표는 진행 해금과 분리, 경로별 행동은 처치 반복 대신 조사·방어·운반 등으로 순환하도록 합니다. 다음 적정 난도 작업에서는 HP 폭증보다 기존 세 적의 조합과 캠프 배치로 위험을 구성합니다. 추가 협동 압력은 플레이어 수 분기 및 코드 계약 검사 뒤에만 고려합니다. 실제 난도/재미 체감은 이 개발 과정에서 시험하지 않습니다. 자료와 적용 기준: `marine-growing/verification/2026-10-07-external-difficulty-content-review.md`.
