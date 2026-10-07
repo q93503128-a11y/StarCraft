@@ -124,7 +124,7 @@ UA3의 mission objective 생성·갱신과 선택 목표 상태, Crash RPG의 �
 
 [UA3 고정 원본](https://raw.githubusercontent.com/DrSuperGood/SC2-UA3/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 작전 단계/선택 목표 흐름과 [Crash RPG 고정 원본](https://raw.githubusercontent.com/Alzarath/Crash-RPG/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 목표 카운터·상태 갱신 코드를 다시 읽어 구조만 적용했습니다. 외부 함수나 자산은 복사하지 않았습니다.
 
-전용 시나리오 17개를 포함한 전체 회귀 묶음을 통과했습니다. 실제 Print Screen으로 허브와 필드 화면을 캡처해 읽었고, 최종 후보/정본/런타임 해시는 `033e8a321612fc8735ece81baeb5044a0e221723b2bab6fff5ebad917036896a`로 같으며 ScriptError·Alerts가 없습니다. 다만 N 표식의 미니맵 클릭은 허브로 돌아갔고 최종 필드 캡처에 신호 임무 패널은 나타나지 않았습니다. 엔진에서 임무 시작·진행·협동·보상은 아직 미검증입니다. 상세 기록은 `marine-growing/verification/2026-10-07-signal-analysis.md`에 있습니다.
+전용 시나리오 17개를 포함한 전체 회귀 묶음을 통과했습니다. 실제 Print Screen으로 허브와 필드 화면을 캡처해 읽었고, 최종 후보/정본/런타임 해시는 `033e8a321612fc8735ece81baeb5044a0e221723b2bab6fff5ebad917036896a`로 같으며 ScriptError·Alerts가 없습니다. 신호 임무 패널은 이번 캡처에서 활성화되지 않았습니다. 후속 Sky 창 캡처가 FrameArrived timeout되어 이후 좌표 입력은 최신 screenshotId 기반이 아니었습니다. 따라서 허브에 머문 화면만으로 N 표식이나 이동 코드 결함을 판정하지 않습니다. 엔진 임무 시작·진행·협동·보상은 미검증입니다. 상세 기록은 `marine-growing/verification/2026-10-07-signal-analysis.md`에 있습니다.
 
 
 ## 2026-10-07 외부 게임에서 본 목표 다양성과 적정 난도
