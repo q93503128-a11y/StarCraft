@@ -147,3 +147,6 @@ LunaCoopMod의 실제 [Skyfall.SC2Map generated MapScript.galaxy](https://raw.gi
 ## 2026-10-07 신호 목표 개인 UI 정리 회귀
 
 신호 임무 전용 코드 어댑터를 20개로 늘렸습니다. 완료 후 상태/표식 정리를 두 필드에서 확인하고, 필드를 떠날 때 개인 주·선택 목표와 세계 표식이 숨겨지는지 추가했습니다. `node marine-growing/check-signal-contract.mjs` 통과 결과는 Galaxy source hash `60657ef4159027eec6b7d8b698e38a0ff5fd2329b257442a9e9f755a5acc32f7`입니다. 코드는 바뀌지 않았으며 엔진/UI 실행 결과를 대신하지 않습니다.
+
+
+신호 계약 추가 회귀 21번째는 선택 목표가 완료되지 않아도 본 작전 완료와 기본 보상이 정상 진행되는지 확인합니다. 선택 목표는 보너스로 유지되고 주 진행의 필수 조건이 되지 않습니다. Galaxy source hash는 변경되지 않았으며 이 결과는 함수 어댑터 검사입니다.
