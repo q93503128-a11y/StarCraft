@@ -142,3 +142,8 @@ UA3의 mission objective 생성·갱신과 선택 목표 상태, Crash RPG의 �
 
 
 LunaCoopMod의 실제 [Skyfall.SC2Map generated MapScript.galaxy](https://raw.githubusercontent.com/Aeroluna/LunaCoopMod/main/Skyfall.SC2Map/MapScript.galaxy)도 확인했습니다. MapInit 뒤 협동 1·2번 플레이어 각각의 기지 지역 공개 함수를 호출하고, 지휘관 선택 UI가 닫힌 후 맵 유닛 핑을 한 번 준비하는 generated trigger wrapper입니다. 선택 임무 스크립트는 아니며, 이 맵에서 사용자 제작 시야/핑 UI가 어떻게 시작되는지 확인한 것입니다. 우리 맵은 허브와 사냥터 포탈, N 목표 안내를 사용하므로 전 맵 공개나 추가 핑은 채택하지 않았습니다.
+
+
+## 2026-10-07 신호 목표 개인 UI 정리 회귀
+
+신호 임무 전용 코드 어댑터를 20개로 늘렸습니다. 완료 후 상태/표식 정리를 두 필드에서 확인하고, 필드를 떠날 때 개인 주·선택 목표와 세계 표식이 숨겨지는지 추가했습니다. `node marine-growing/check-signal-contract.mjs` 통과 결과는 Galaxy source hash `60657ef4159027eec6b7d8b698e38a0ff5fd2329b257442a9e9f755a5acc32f7`입니다. 코드는 바뀌지 않았으며 엔진/UI 실행 결과를 대신하지 않습니다.
