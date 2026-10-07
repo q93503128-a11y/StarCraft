@@ -71,3 +71,12 @@ MCP 문서 검사10분류 오류0, 기존 경고23(기본 자산 참조22/이전
 네이티브 어댑터·카탈로그·회귀 검사 112개 통과, Galaxy 문법 오류 0, MCP 검증 오류 0·기존 경고 23개입니다. 정본 후보 SHA-256 `9913818158e5a24a5f3258fa263143c723b0f7da9352f880989c654760dbe5a9`; 전 설치 정본은 `b033b27eba2e3a5749c5fb390f3e0c0ec1fafc73920cd90936454a60bae9a8bc`였습니다. 정본 재열기 후 `-displaymode 1`로 실행했고 시작 전/종료 후 canonical/runtime 해시가 같으며 ScriptError/Alerts 로그가 없었습니다. 이는 로드/무결성 확인이며 실제 순찰 이동, 길찾기, 수송 완료, 협동 테스트는 아닙니다.
 
 이번에는 우회 캡처를 사용했습니다. 게임의 Print Screen 결과를 `captures/latest.png`와 `patrol-circuits-hub` 체크포인트로 수집해 실제 이미지를 다시 읽었습니다. 허브 시설·포탈 이름·목표 목록·기본 명령창을 확인했습니다. 이 화면에는 사냥터나 이동 중인 적이 보이지 않아 순찰 화면 검증은 아직 없습니다. 전체 기록은 `marine-growing/verification/2026-10-07-patrol-circuits.md`입니다.
+
+
+## 2026-10-07 캠프 단위 리스폰
+
+실제 야영지 출현 묶음을 하나의 조우로 다루도록 바꿨습니다. 외곽의 쌍 출현과 저글링 무리, 북부의 세 유닛 무리는 묶음 전체가 공유하는 근접 확인과 리스폰 타이머를 씁니다. 플레이어가 어느 한 출현점에 가까우면 해당 캠프가 다시 채워지지 않고, 한 유닛이 처치되면 캠프 전체의 기존 10초 타이머가 다시 시작됩니다. 캠프 주변이 비워진 뒤 무리가 함께 돌아와 사냥터가 한 마리씩 흩어져 채워지는 모습을 줄입니다. 적 종류·수·수치·보상·순찰·지형·자산은 바꾸지 않았습니다.
+
+[UA3 제작자 원본](https://github.com/DrSuperGood/SC2-UA3/blob/5083f0e9eef272af3bb947d11b3b1d0e29c22a7f/Undead%20Assault%203%202015.SC2Map/MapScript.galaxy)의 `gf_SpawnUndead`(보존 코드 7892–7995행)가 생성 유닛을 그룹으로 모으고 공통 명령 및 추적을 적용하는 부분, [Crash RPG 제작자 원본](https://github.com/Alzarath/Crash-RPG/blob/c83cbb612affb3d62d3a05eb479521bbb648e570/CrashRPG.SC2Map/MapScript.galaxy)의 `gf_SpawnAlienLoop`(596–625행)가 하나의 출현 지점에서 여러 적을 생성하는 부분을 읽었습니다. 그룹 단위 조우라는 아이디어만 현재 고정 출현 쌍/삼인조에 맞게 적용했고, 외부 코드는 복사하지 않았습니다.
+
+114개 함수 어댑터·카탈로그·회귀 검사 통과, Galaxy 문법 오류 0, MCP 검증 오류 0 및 기존 경고 23개입니다. 후보와 정본 해시는 `3bd9f155814355b8c8e103882784a965993b3d112c4a6b087a8ef756cc40c787`로 일치합니다. 실행 전후 canonical/runtime 해시가 맞고 오류 로그도 없습니다. 게임 Print Screen 우회 캡처로 허브를 읽어 확인했지만, Sky 프레임 캡처가 타임아웃되어 현장 조작은 진행하지 못했습니다. 따라서 캠프 리스폰 동작은 아직 정상 플레이 중 확인되지 않았습니다. 상세 근거: `marine-growing/verification/2026-10-07-camp-respawn.md`.
