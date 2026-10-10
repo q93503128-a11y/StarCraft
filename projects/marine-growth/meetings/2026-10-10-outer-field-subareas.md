@@ -39,3 +39,8 @@
 A source audit found the existing `MG_EnemyPatrolPoint` / `MG_EnemyPatrolDelay` helpers had no call sites. They are now connected to the running enemy-order tick: idle camps issue bounded stock move orders around their anchor; the supply-road band sweeps laterally; the infected edge follows a wider perimeter. Same-field aggro replaces patrol with the stock target attack order, losing the target returns the enemy to its anchor, and spawn resets patrol state. UA3 route-index patrol and Crash RPG fixed-origin waypoint patterns were adapted; no foreign code was copied.
 
 The updated enemy/patrol adapter passes 6 code-level cases. This verifies our branch conditions and mocked orders only; SC2 pathing, attack movement/animation, damage, visual presentation and normal play remain unverified. The stage stays on revision 62 with hash `e2933da22ef47616b6d0887c79c6b789a6135f47b2709a6e354c000d61f9cbd2`. No candidate or deployment was made.
+
+
+## Supply activity reachability repair in the same batch
+
+The final static review found an existing assignment in `MG_InitActivities` converted activity kind 2 (supply delivery) into kind 3 (position hold). That left the preserved cargo return handler and the new quest prerequisite unreachable. Removed the conversion, restoring the existing 1/2/3 field activity cycle. The focused zone checker now asserts kind 2 is assigned and that the delivery completion path sets the campaign flag. This is source-level contract coverage; an in-game pickup, return, reward, and Bank save have not been tested. Final staged hash: `28247fa50ef27bc06e8c436055358a287637a51acb79fef48375a162f09279be`, revision 63; no deployment or normal playtest.
