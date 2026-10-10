@@ -32,3 +32,10 @@
 ## 다음 작업
 
 다음 대화 시작 때 README, 결정 기록, 최신 회의, 레벨 1~100 기준, 성장 1500 기준, 당면 SC2 제작자 코드와 로컬 RESUME/AGENTS.md를 먼저 다시 읽는다. 다음 구현은 보급로와 감염 경계의 캠프 이동/교전 패턴을 실제 제작자 경로 코드와 다시 대조하고, 지역별 작전 목표가 세 구역을 각각 방문하게 연결한다. Lv1–100 전체 경로가 끝날 때까지 일반 사용자 플레이 테스트를 요청하지 않는다.
+
+
+## Camp patrol activation follow-up in the same batch
+
+A source audit found the existing `MG_EnemyPatrolPoint` / `MG_EnemyPatrolDelay` helpers had no call sites. They are now connected to the running enemy-order tick: idle camps issue bounded stock move orders around their anchor; the supply-road band sweeps laterally; the infected edge follows a wider perimeter. Same-field aggro replaces patrol with the stock target attack order, losing the target returns the enemy to its anchor, and spawn resets patrol state. UA3 route-index patrol and Crash RPG fixed-origin waypoint patterns were adapted; no foreign code was copied.
+
+The updated enemy/patrol adapter passes 6 code-level cases. This verifies our branch conditions and mocked orders only; SC2 pathing, attack movement/animation, damage, visual presentation and normal play remain unverified. The stage stays on revision 62 with hash `e2933da22ef47616b6d0887c79c6b789a6135f47b2709a6e354c000d61f9cbd2`. No candidate or deployment was made.
