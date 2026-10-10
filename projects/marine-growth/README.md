@@ -2,7 +2,7 @@
 
 상태 (2026-10-10): 정본 `C:\Users\skanya\Documents\StarCraft II\Maps\RPG_Test.SC2Map`의 SHA-256은 `9a99c3ad3840ee84895accb9ad43fdf1f46cfa8a9669f81c4c7d3c8eead3f67f`입니다. 맵은 192×192 한 장에 허브와 외곽·북부 사냥 구역, 레벨 게이트 캠프 22개, 저글링·히드라리스크·바퀴를 둡니다. 적은 같은 사냥터 플레이어가 감지 반경에 들어올 때 기본 공격 명령으로 추적하고, 유효 표적이 사라지면 캠프 위치로 돌아가도록 고쳤습니다. 이 동작은 코드 어댑터와 MCP 구문/문서 검사만 통과했습니다. 2026-10-10 17:03 KST 전체화면 창 모드로 맵을 열었고 정본/runtime 해시가 실행 전후 일치하며 ScriptError·Alerts가 비었습니다. 사용자의 정상 전투 테스트는 아직 남아 있습니다.
 
-주의: 외곽과 북부는 아직 서로 다른 지역 캠페인이 아닙니다. 넓은 지역을 연결하는 해금 동선, 서로 다른 적 조합과 활동은 계획 일부에만 있고 정본에 모두 구현된 상태가 아닙니다. 아래 과거 기록 중 `033e8a...` 해시와 그 이후 신호 임무 상태는 현재 정본의 증거로 취급하지 않습니다. 최신 재개 기록은 로컬 `marine-growing/RESUME.md` 및 [2026-10-10 적 추적 수정 기록](meetings/2026-10-10-enemy-response.md)입니다.
+주의: 외곽과 북부는 아직 서로 다른 지역 캠페인이 아닙니다. 넓은 지역을 연결하는 해금 동선, 서로 다른 적 조합과 활동은 계획 일부에만 있고 정본에 모두 구현된 상태가 아닙니다. 아래 과거 기록 중 `033e8a...` 해시와 그 이후 신호 임무 상태는 현재 정본의 증거로 취급하지 않습니다. 2026-10-10 성장 방향은 기존 250 상한/100 완결안에서 Lv100 초중반, 약 Lv1500 후반 목표로 개정했습니다. 단일 기준은 [레벨 1~100 지역 캠페인과 완성 기준](design/level-1-to-100-batch.md) 및 [2026-10-10 성장·귀환 결정](meetings/2026-10-10-level-route-and-recall.md)이며, 기존 250 관련 문서는 충돌 시 과거 초안입니다. 최신 재개 기록은 로컬 `marine-growing/RESUME.md`와 [적 추적 수정 기록](meetings/2026-10-10-enemy-response.md)입니다.
 
 이전 설계 기록에는 [UA3/Crash RPG 제작자 코드와 LunaCoopMod 공개 저장소](design/field-route-and-ux-refinement.md), [Deep Rock Galactic·Warframe 공개 자료](design/external-systems-review-and-content-plan.md)를 대조한 내용이 있습니다. 이 자료는 설계 근거이며 현재 정본에 적힌 모든 임무·행동·지역이 구현됐다는 뜻은 아닙니다. 각 배치의 실제 변경과 검증 경계는 날짜별 회의·검증 기록을 확인합니다.
 
@@ -32,7 +32,8 @@
 - [공유 사냥터 연쇄 정찰 구현](design/shared-field-operations.md): 최신 실제 코드, 세 경로·중간 합류·기여 보상과 UI/코드 검증 범위
 - [스킬·훈련·진화 실제 구현](design/skill-training-implementation.md): 최신 실제 코드, 원본 패턴, 초안에서 바뀐 효과와 UI/검증 범위
 - [영구 레벨·계급과 사냥터 활동 구현](design/level-rank-and-field-activities.md): 최신 실제 코드, 외부 원본, 수치와 검증 범위
-- [레벨 1~100 콘텐츠·구현 기록](design/level-1-to-100-batch.md): 2026-10-07 사냥터 배치 상태와 남은 지역 진행·이동 구조
+- [레벨 1~100 지역 캠페인 완성 기준](design/level-1-to-100-batch.md): 현재 구현 상태, 최신 5개 지역/퀘스트 동선 및 테스트 게이트
+- [Lv1500 성장 구조](design/progression-to-1500.md): 레벨 100 초중반, 수천 단위 후반 스탯 목표 및 코드 이행 순서
 - [적 캠프 추적 수정과 외부 패턴 대조](design/enemy-response-reference-review.md): 2026-10-10 실제 정본 결함, UA3/Crash RPG 코드 대조, 적용 범위와 플레이 검증 경계
 - [기획 초안](design/pitch.md): 초기 스테이지 제안 기록; 현재 진행은 공유 사냥터 기준 우선
 - [기획 브리프](design/brief.md): 사용자 방향, 열린 질문, 난도 원칙
