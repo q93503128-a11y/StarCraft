@@ -121,3 +121,6 @@ MCP 스테이징에서 기존 외곽 캠프 30개를 지형상 연결되는 세 
 
 
 Follow-up code audit on 2026-10-10 found the prototype defined patrol waypoints/delays but never called them. A staged-only change now activates bounded anchor patrols in the live enemy tick and gives the supply road versus infected edge different stock-move circuits; attacking players interrupt patrol and an invalidated target returns the enemy to its camp. This implements the route-index/anchor pattern previously observed in UA3 and Crash RPG without importing their Galaxy code. Adapter tests verify six mocked target/patrol cases, not runtime pathing. Full record: [outer field subareas meeting](../meetings/2026-10-10-outer-field-subareas.md).
+
+
+A final source inspection found the supply activity was being rewritten from kind 2 to kind 3 (holdout), preventing both the existing delivery handler and the first-region quest requirement from running. The staged batch restores the existing 1/2/3 operation/supply/hold activity cycle and adds a static contract for the delivery flag. Actual in-game pickup/delivery/reward/save remain untested. Final stage revision 63, Galaxy hash `28247fa50ef27bc06e8c436055358a287637a51acb79fef48375a162f09279be`.
